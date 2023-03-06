@@ -1,6 +1,9 @@
 package com.gientech.learn.order.wrapper;
 
+import com.gientech.learn.account.api.AccountApi;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
 
 /**
  * @author xiefei
@@ -8,10 +11,10 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class AccountWrapper {
+    @Resource
+    private AccountApi accountApi;
+
     public boolean find(Long accountId){
-        // todo 查询远程接口
-        return true;
+        return accountApi.validate(accountId);
     }
-
-
 }

@@ -1,3 +1,16 @@
 # 端口号配置
 server:
   port: 9081
+
+spring:
+  application:
+    name: account-server
+  datasource:
+    url: jdbc:mysql://localhost:3306/gientech-work-account?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+  cloud:  #nacos注册中心地址的配置法
+    nacos:
+      discovery:
+        server-addr: localhost:8848
