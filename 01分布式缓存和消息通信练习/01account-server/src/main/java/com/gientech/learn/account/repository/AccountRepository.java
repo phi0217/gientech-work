@@ -3,6 +3,7 @@ package com.gientech.learn.account.repository;
 
 import com.gientech.learn.account.dataobj.AccountDO;
 import com.gientech.learn.account.mapper.AccountMapper;
+import com.gientech.learn.account.wrapper.AccountWrapper;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -15,6 +16,8 @@ import javax.annotation.Resource;
 public class AccountRepository {
     @Resource
     private AccountMapper accountMapper;
+    @Resource
+    private AccountWrapper accountWrapper;
 
     public boolean hasAccount(Long accountId) {
         AccountDO accountDO = accountMapper.selectById(accountId);
@@ -26,12 +29,14 @@ public class AccountRepository {
             AccountDO accountDO = new AccountDO();
             accountDO.setId(accountId);
             accountMapper.insert(accountDO);
+            accountWrapper.add(accountId);
         }
     }
 
     public void delete(Long accountId){
         if (hasAccount(accountId)){
             accountMapper.deleteById(accountId);
+            accountWrapper.remove(accountId);
         }
     }
 }

@@ -31,3 +31,8 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
+
+#rocketmq配置信息
+rocketmq:
+  #nameservice服务器地址（多个以英文逗号隔开）
+  name-server: 127.0.0.1:9876
