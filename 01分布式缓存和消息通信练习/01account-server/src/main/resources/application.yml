@@ -22,3 +22,12 @@ rocketmq:
     producer:
       #组名
       group: 01account
+
+# Seata 配置
+seata:
+  tx-service-group: my_test_tx_group
+  service:
+    vgroup-mapping:
+      order-service-group: default
+    default:
+      grouplist: 127.0.0.1:8091

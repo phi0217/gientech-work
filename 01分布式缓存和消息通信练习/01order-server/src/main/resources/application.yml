@@ -36,3 +36,12 @@ spring:
 rocketmq:
   #nameservice服务器地址（多个以英文逗号隔开）
   name-server: 127.0.0.1:9876
+
+# Seata 配置
+seata:
+  tx-service-group: my_test_tx_group
+  service:
+    vgroup-mapping:
+      order-service-group: default
+    default:
+      grouplist: 127.0.0.1:8091

@@ -12,4 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public interface AccountApi {
     @GetMapping("/validate")
     boolean validate(Long accountId);
+
+    @GetMapping("/pointAdd")
+    void pointAdd(Long id);
 }

@@ -6,4 +6,6 @@ package com.gientech.learn.order.service;
  */
 public interface OrderService {
     void create(Long accountId);
+
+    void newOrder(Long accountId);
 }

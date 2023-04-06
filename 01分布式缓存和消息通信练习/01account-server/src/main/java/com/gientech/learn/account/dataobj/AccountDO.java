@@ -11,4 +11,6 @@ import lombok.Data;
 public class AccountDO {
     @TableId
     private Long id;
+
+    private Long point;
 }

@@ -3,6 +3,7 @@ package com.gientech.learn.account.service.impl;
 import com.gientech.learn.account.api.AccountApi;
 import com.gientech.learn.account.repository.AccountRepository;
 import com.gientech.learn.account.service.AccountService;
+import com.gientech.learn.account.service.AccountTCCService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,8 @@ import java.util.Optional;
 public class AccountServiceImpl implements AccountApi, AccountService {
     @Resource
     private AccountRepository accountRepository;
+    @Resource
+    private AccountTCCService accountTCCService;
 
     @Override
     public boolean validate(Long accountId) {
@@ -26,6 +29,11 @@ public class AccountServiceImpl implements AccountApi, AccountService {
             throw new RuntimeException("需要accountId");
         });
         return accountRepository.hasAccount(accountId);
+    }
+
+    @Override
+    public void pointAdd(Long id) {
+        accountTCCService.pointAdd(id);
     }
 
     @Override
